@@ -1,0 +1,54 @@
+{
+  "checked_at_utc": "2026-09-15T04:44:31.239928+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "-v",
+        "test_resolver",
+        "test_steering",
+        "test_cache"
+      ],
+      "exit_code": 0,
+      "log": "unit-tests.txt"
+    },
+    {
+      "command": [
+        "python3",
+        "test_tasks.py"
+      ],
+      "exit_code": 0,
+      "log": "tests.txt"
+    },
+    {
+      "command": [
+        "python3",
+        "../check.py",
+        "w03"
+      ],
+      "exit_code": 0,
+      "log": "format-check.txt"
+    },
+    {
+      "command": [
+        "python3",
+        "bench.py",
+        "--yours"
+      ],
+      "exit_code": 0,
+      "log": "bench.txt"
+    }
+  ],
+  "bench_sha256": "b11cb974badec4504355b8e41708f5f16345a88ac4277622867c4ce7323e9ecb",
+  "bench_unchanged": true,
+  "sites": 12,
+  "networks": [
+    "campus",
+    "phone-hotspot"
+  ],
+  "own_capture_query_domains": [
+    "www.korea.ac.kr"
+  ]
+}

@@ -1,0 +1,964 @@
+{
+  "schema_version": 1,
+  "sites": [
+    "www.microsoft.com",
+    "www.netflix.com",
+    "www.adobe.com",
+    "www.cnn.com",
+    "www.apple.com",
+    "www.korea.ac.kr",
+    "www.stanford.edu",
+    "www.bbc.co.uk",
+    "www.spotify.com",
+    "www.github.com",
+    "www.wikipedia.org",
+    "www.nytimes.com"
+  ],
+  "runs": [
+    {
+      "run_id": "20260915T042757.665274Z--campus--2ce73723",
+      "network": "campus",
+      "collected_at": "2026-09-15T04:27:57.665274Z",
+      "resolvers": {
+        "system": {
+          "server": null,
+          "nameservers": [
+            "163.152.213.9",
+            "168.126.63.1",
+            "168.126.63.2",
+            "192.168.0.1"
+          ]
+        },
+        "google": {
+          "server": "8.8.8.8",
+          "nameservers": [
+            "8.8.8.8"
+          ]
+        },
+        "quad9": {
+          "server": "9.9.9.9",
+          "nameservers": [
+            "9.9.9.9"
+          ]
+        }
+      },
+      "sites": {
+        "www.microsoft.com": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.microsoft.com",
+              "www.microsoft.com-c-3.edgekey.net",
+              "e13678.dscb.akamaiedge.net"
+            ],
+            "final_hostname": "e13678.dscb.akamaiedge.net",
+            "hops": 2
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "23.49.206.40"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "23.49.206.40"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "23.63.226.92"
+              ]
+            }
+          }
+        },
+        "www.netflix.com": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.netflix.com",
+              "www.prod.ftl.netflix.com"
+            ],
+            "final_hostname": "www.prod.ftl.netflix.com",
+            "hops": 1
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "207.45.72.1",
+                "207.45.73.1"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "207.45.72.1",
+                "207.45.73.1"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "207.45.72.1",
+                "207.45.73.1"
+              ]
+            }
+          }
+        },
+        "www.adobe.com": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.adobe.com",
+              "www.adobe.com.edgesuite.net",
+              "a1319.dscr.akamai.net"
+            ],
+            "final_hostname": "a1319.dscr.akamai.net",
+            "hops": 2
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "23.76.153.115",
+                "23.76.153.121"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "23.76.153.115",
+                "23.76.153.121"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "23.62.21.78",
+                "23.62.21.104"
+              ]
+            }
+          }
+        },
+        "www.cnn.com": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.cnn.com",
+              "cnn-tls.map.fastly.net"
+            ],
+            "final_hostname": "cnn-tls.map.fastly.net",
+            "hops": 1
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "146.75.51.5"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "151.101.3.5",
+                "151.101.67.5",
+                "151.101.131.5",
+                "151.101.195.5"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "151.101.3.5",
+                "151.101.67.5",
+                "151.101.131.5",
+                "151.101.195.5"
+              ]
+            }
+          }
+        },
+        "www.apple.com": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.apple.com",
+              "www-apple-com.v.aaplimg.com",
+              "www.apple.com.edgekey.net",
+              "e6858.dsce9.akamaiedge.net"
+            ],
+            "final_hostname": "e6858.dsce9.akamaiedge.net",
+            "hops": 3
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "23.49.205.28"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "23.49.205.28"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "184.31.228.249"
+              ]
+            }
+          }
+        },
+        "www.korea.ac.kr": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.korea.ac.kr"
+            ],
+            "final_hostname": "www.korea.ac.kr",
+            "hops": 0
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "163.152.6.10"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "163.152.6.10"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "163.152.6.10"
+              ]
+            }
+          }
+        },
+        "www.stanford.edu": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.stanford.edu",
+              "stanford.netlifyglobalcdn.com"
+            ],
+            "final_hostname": "stanford.netlifyglobalcdn.com",
+            "hops": 1
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "3.33.186.135",
+                "15.197.167.90"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "3.33.186.135",
+                "15.197.167.90"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "3.33.186.135",
+                "15.197.167.90"
+              ]
+            }
+          }
+        },
+        "www.bbc.co.uk": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.bbc.co.uk",
+              "www.bbc.co.uk.pri.bbc.co.uk",
+              "bbc.map.fastly.net"
+            ],
+            "final_hostname": "bbc.map.fastly.net",
+            "hops": 2
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "146.75.48.81"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "151.101.0.81",
+                "151.101.64.81",
+                "151.101.128.81",
+                "151.101.192.81"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "151.101.0.81",
+                "151.101.64.81",
+                "151.101.128.81",
+                "151.101.192.81"
+              ]
+            }
+          }
+        },
+        "www.spotify.com": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.spotify.com",
+              "atc.spotify.map.fastly.net"
+            ],
+            "final_hostname": "atc.spotify.map.fastly.net",
+            "hops": 1
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "146.75.51.42"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "151.101.3.42",
+                "151.101.67.42",
+                "151.101.131.42",
+                "151.101.195.42"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "151.101.3.42",
+                "151.101.67.42",
+                "151.101.131.42",
+                "151.101.195.42"
+              ]
+            }
+          }
+        },
+        "www.github.com": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.github.com",
+              "github.com"
+            ],
+            "final_hostname": "github.com",
+            "hops": 1
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "20.200.245.247"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "20.200.245.247"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "20.27.177.113"
+              ]
+            }
+          }
+        },
+        "www.wikipedia.org": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.wikipedia.org",
+              "dyna.wikimedia.org"
+            ],
+            "final_hostname": "dyna.wikimedia.org",
+            "hops": 1
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "103.102.166.224"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "103.102.166.224"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "103.102.166.224"
+              ]
+            }
+          }
+        },
+        "www.nytimes.com": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.nytimes.com",
+              "www.prd.map.nytimes.com",
+              "www.prd.map.nytimes.xovr.nyt.net",
+              "nytimes.map.fastly.net"
+            ],
+            "final_hostname": "nytimes.map.fastly.net",
+            "hops": 3
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "146.75.49.164"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "151.101.1.164",
+                "151.101.65.164",
+                "151.101.129.164",
+                "151.101.193.164"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "151.101.1.164",
+                "151.101.65.164",
+                "151.101.129.164",
+                "151.101.193.164"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "run_id": "20260915T043251.757916Z--phone-hotspot--7d9828fc",
+      "network": "phone-hotspot",
+      "collected_at": "2026-09-15T04:32:51.757916Z",
+      "resolvers": {
+        "system": {
+          "server": null,
+          "nameservers": [
+            "10.218.249.104",
+            "192.168.0.1"
+          ]
+        },
+        "google": {
+          "server": "8.8.8.8",
+          "nameservers": [
+            "8.8.8.8"
+          ]
+        },
+        "quad9": {
+          "server": "9.9.9.9",
+          "nameservers": [
+            "9.9.9.9"
+          ]
+        }
+      },
+      "sites": {
+        "www.microsoft.com": {
+          "cname": {
+            "status": "error",
+            "chain": [
+              "www.microsoft.com"
+            ],
+            "final_hostname": "www.microsoft.com",
+            "hops": 0,
+            "error": "timeout: The resolution lifetime expired after 4.106 seconds: Server Do53:10.218.249.104@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out."
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "error",
+              "addresses": [],
+              "error": "timeout: The resolution lifetime expired after 4.108 seconds: Server Do53:10.218.249.104@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out."
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "23.49.206.40"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "23.63.226.92"
+              ]
+            }
+          }
+        },
+        "www.netflix.com": {
+          "cname": {
+            "status": "error",
+            "chain": [
+              "www.netflix.com"
+            ],
+            "final_hostname": "www.netflix.com",
+            "hops": 0,
+            "error": "timeout: The resolution lifetime expired after 4.121 seconds: Server Do53:10.218.249.104@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out."
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "error",
+              "addresses": [],
+              "error": "timeout: The resolution lifetime expired after 4.102 seconds: Server Do53:10.218.249.104@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out."
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "207.45.72.1",
+                "207.45.73.1"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "207.45.72.1",
+                "207.45.73.1"
+              ]
+            }
+          }
+        },
+        "www.adobe.com": {
+          "cname": {
+            "status": "error",
+            "chain": [
+              "www.adobe.com"
+            ],
+            "final_hostname": "www.adobe.com",
+            "hops": 0,
+            "error": "timeout: The resolution lifetime expired after 4.101 seconds: Server Do53:10.218.249.104@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out."
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "23.35.218.148",
+                "23.35.218.156"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "23.76.153.35",
+                "23.76.153.122"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "23.62.21.78",
+                "23.62.21.104"
+              ]
+            }
+          }
+        },
+        "www.cnn.com": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.cnn.com",
+              "cnn-tls.map.fastly.net"
+            ],
+            "final_hostname": "cnn-tls.map.fastly.net",
+            "hops": 1
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "146.75.51.5"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "151.101.3.5",
+                "151.101.67.5",
+                "151.101.131.5",
+                "151.101.195.5"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "151.101.3.5",
+                "151.101.67.5",
+                "151.101.131.5",
+                "151.101.195.5"
+              ]
+            }
+          }
+        },
+        "www.apple.com": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.apple.com",
+              "www-apple-com.v.aaplimg.com",
+              "www.apple.com.edgekey.net",
+              "e6858.dsce9.akamaiedge.net"
+            ],
+            "final_hostname": "e6858.dsce9.akamaiedge.net",
+            "hops": 3
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "104.94.216.37"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "23.49.205.28"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "23.217.180.246"
+              ]
+            }
+          }
+        },
+        "www.korea.ac.kr": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.korea.ac.kr"
+            ],
+            "final_hostname": "www.korea.ac.kr",
+            "hops": 0
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "163.152.6.10"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "163.152.6.10"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "163.152.6.10"
+              ]
+            }
+          }
+        },
+        "www.stanford.edu": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.stanford.edu",
+              "stanford.netlifyglobalcdn.com"
+            ],
+            "final_hostname": "stanford.netlifyglobalcdn.com",
+            "hops": 1
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "error",
+              "addresses": [],
+              "error": "timeout: The resolution lifetime expired after 4.112 seconds: Server Do53:10.218.249.104@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out."
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "3.33.186.135",
+                "15.197.167.90"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "3.33.186.135",
+                "15.197.167.90"
+              ]
+            }
+          }
+        },
+        "www.bbc.co.uk": {
+          "cname": {
+            "status": "error",
+            "chain": [
+              "www.bbc.co.uk",
+              "www.bbc.co.uk.pri.bbc.co.uk",
+              "bbc.map.fastly.net"
+            ],
+            "final_hostname": "bbc.map.fastly.net",
+            "hops": 2,
+            "error": "timeout: The resolution lifetime expired after 4.108 seconds: Server Do53:10.218.249.104@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out."
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "146.75.48.81"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "151.101.0.81",
+                "151.101.64.81",
+                "151.101.128.81",
+                "151.101.192.81"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "151.101.0.81",
+                "151.101.64.81",
+                "151.101.128.81",
+                "151.101.192.81"
+              ]
+            }
+          }
+        },
+        "www.spotify.com": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.spotify.com",
+              "atc.spotify.map.fastly.net"
+            ],
+            "final_hostname": "atc.spotify.map.fastly.net",
+            "hops": 1
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "146.75.51.42"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "151.101.3.42",
+                "151.101.67.42",
+                "151.101.131.42",
+                "151.101.195.42"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "151.101.3.42",
+                "151.101.67.42",
+                "151.101.131.42",
+                "151.101.195.42"
+              ]
+            }
+          }
+        },
+        "www.github.com": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.github.com",
+              "github.com"
+            ],
+            "final_hostname": "github.com",
+            "hops": 1
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "20.200.245.247"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "20.200.245.247"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "20.27.177.113"
+              ]
+            }
+          }
+        },
+        "www.wikipedia.org": {
+          "cname": {
+            "status": "ok",
+            "chain": [
+              "www.wikipedia.org",
+              "dyna.wikimedia.org"
+            ],
+            "final_hostname": "dyna.wikimedia.org",
+            "hops": 1
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "103.102.166.224"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "103.102.166.224"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "103.102.166.224"
+              ]
+            }
+          }
+        },
+        "www.nytimes.com": {
+          "cname": {
+            "status": "error",
+            "chain": [
+              "www.nytimes.com",
+              "www.prd.map.nytimes.com"
+            ],
+            "final_hostname": "www.prd.map.nytimes.com",
+            "hops": 1,
+            "error": "timeout: The resolution lifetime expired after 4.105 seconds: Server Do53:10.218.249.104@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out."
+          },
+          "answers": {
+            "system": {
+              "server": null,
+              "status": "ok",
+              "addresses": [
+                "146.75.49.164"
+              ]
+            },
+            "google": {
+              "server": "8.8.8.8",
+              "status": "ok",
+              "addresses": [
+                "151.101.1.164",
+                "151.101.65.164",
+                "151.101.129.164",
+                "151.101.193.164"
+              ]
+            },
+            "quad9": {
+              "server": "9.9.9.9",
+              "status": "ok",
+              "addresses": [
+                "151.101.1.164",
+                "151.101.65.164",
+                "151.101.129.164",
+                "151.101.193.164"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

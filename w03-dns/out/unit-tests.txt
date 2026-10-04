@@ -1,0 +1,56 @@
+test_CNAME_대상이_같은_glue없는_NS를_써도_주소를_재사용한다 (test_resolver.ResolverTests.test_CNAME_대상이_같은_glue없는_NS를_써도_주소를_재사용한다) ... ok
+test_CNAME_순환을_오류로_끝낸다 (test_resolver.ResolverTests.test_CNAME_순환을_오류로_끝낸다) ... ok
+test_CNAME을_만나면_대상_이름을_루트부터_다시_찾는다 (test_resolver.ResolverTests.test_CNAME을_만나면_대상_이름을_루트부터_다시_찾는다) ... ok
+test_UDP_응답이_잘리면_같은_서버에_TCP로_다시_묻는다 (test_resolver.ResolverTests.test_UDP_응답이_잘리면_같은_서버에_TCP로_다시_묻는다) ... ok
+test_delegation을_직접_따라가며_RD_비트를_끄고_질의한다 (test_resolver.ResolverTests.test_delegation을_직접_따라가며_RD_비트를_끄고_질의한다) ... ok
+test_glue가_없으면_NS_이름을_루트부터_해석한다 (test_resolver.ResolverTests.test_glue가_없으면_NS_이름을_루트부터_해석한다) ... ok
+test_권한없는_A와_다른_이름의_A는_정답으로_받지_않는다 (test_resolver.ResolverTests.test_권한없는_A와_다른_이름의_A는_정답으로_받지_않는다) ... ok
+test_권한있는_NXDOMAIN은_명확한_오류를_낸다 (test_resolver.ResolverTests.test_권한있는_NXDOMAIN은_명확한_오류를_낸다) ... ok
+test_루트가_com_위임에_준_gtld_net_glue를_사용한다 (test_resolver.ResolverTests.test_루트가_com_위임에_준_gtld_net_glue를_사용한다)
+루트의 bailiwick은 자식 .com이 아니라 부모 루트 영역이다. ... ok
+test_무관한_정답과_bailiwick_밖_glue를_사용하지_않는다 (test_resolver.ResolverTests.test_무관한_정답과_bailiwick_밖_glue를_사용하지_않는다) ... ok
+test_사용할_glue가_있으면_불필요한_NS_보조_조회를_하지_않는다 (test_resolver.ResolverTests.test_사용할_glue가_있으면_불필요한_NS_보조_조회를_하지_않는다) ... ok
+test_시간_초과가_나면_다음_서버를_시도한다 (test_resolver.ResolverTests.test_시간_초과가_나면_다음_서버를_시도한다) ... ok
+test_전체_질의_수를_넘기기_전에_중단한다 (test_resolver.ResolverTests.test_전체_질의_수를_넘기기_전에_중단한다) ... ok
+test_documented_netlify_cdn_suffix_is_a_third_party_candidate (test_steering.ClassificationTests.test_documented_netlify_cdn_suffix_is_a_third_party_candidate)
+Catch Stanford's observed Netlify CDN chain being discarded as unknown. ... ok
+test_chain_reports_a_loop_instead_of_hanging (test_steering.CnameChainTests.test_chain_reports_a_loop_instead_of_hanging)
+Catch following a repeated target forever. ... ok
+test_chain_reports_transport_failure_distinctly (test_steering.CnameChainTests.test_chain_reports_transport_failure_distinctly)
+Catch confusing an unreachable resolver with 'no CNAME'. ... ok
+test_chain_stops_at_the_configured_depth (test_steering.CnameChainTests.test_chain_stops_at_the_configured_depth)
+Catch an unexpectedly long or malicious chain escaping the cap. ... ok
+test_chain_stops_on_valid_empty_cname_answer (test_steering.CnameChainTests.test_chain_stops_on_valid_empty_cname_answer)
+Catch treating a terminal name as an error or omitting a hop. ... ok
+test_collect_appends_runs_and_preserves_answer_status (test_steering.CollectionTests.test_collect_appends_runs_and_preserves_answer_status)
+Catch a second measurement overwriting the first network evidence. ... ok
+test_collect_cli_accepts_an_explicit_network_label (test_steering.CollectionTests.test_collect_cli_accepts_an_explicit_network_label)
+Catch collecting evidence without the network identity required by B3. ... ok
+test_no_data_is_a_successful_empty_answer (test_steering.DnsTransportTests.test_no_data_is_a_successful_empty_answer)
+Catch a valid no-CNAME response being stored as unreachable. ... ok
+test_timeout_is_preserved_as_an_error (test_steering.DnsTransportTests.test_timeout_is_preserved_as_an_error)
+Catch an unreachable resolver becoming an empty address set. ... ok
+test_addresses_are_unique_valid_and_sorted_numerically (test_steering.NormalizationTests.test_addresses_are_unique_valid_and_sorted_numerically)
+Catch duplicate, malformed, or lexicographically sorted A records. ... ok
+test_report_attributes_older_chain_and_lists_newer_error (test_steering.ReportTests.test_report_attributes_older_chain_and_lists_newer_error)
+Catch an older successful chain being presented as hotspot evidence. ... ok
+test_report_uses_observed_data_and_includes_manual_capture_analysis (test_steering.ReportTests.test_report_uses_observed_data_and_includes_manual_capture_analysis)
+Catch fabricated rows or overwriting the human packet observations. ... ok
+test_errors_do_not_create_false_steering_or_denominator_entries (test_steering.SteeringAnalysisTests.test_errors_do_not_create_false_steering_or_denominator_entries)
+Catch failed lookups being compared as if they were address sets. ... ok
+test_latest_successful_chain_survives_a_later_network_timeout (test_steering.SteeringAnalysisTests.test_latest_successful_chain_survives_a_later_network_timeout)
+Catch a transient CNAME error erasing valid earlier CDN evidence. ... ok
+test_fixed_workload_floor_is_275 (test_cache.CacheFloorTest.test_fixed_workload_floor_is_275) ... ok
+test_minimum_fetches_starts_a_new_window_at_exact_expiry (test_cache.CacheFloorTest.test_minimum_fetches_starts_a_new_window_at_exact_expiry) ... ok
+test_exact_expiry_time_is_a_cache_miss (test_cache.YourCacheTest.test_exact_expiry_time_is_a_cache_miss) ... ok
+test_long_ttl_record_remains_cached_beyond_sixty_seconds (test_cache.YourCacheTest.test_long_ttl_record_remains_cached_beyond_sixty_seconds) ... ok
+test_names_have_independent_expiry_times (test_cache.YourCacheTest.test_names_have_independent_expiry_times) ... ok
+test_refresh_uses_changed_address_and_new_ttl (test_cache.YourCacheTest.test_refresh_uses_changed_address_and_new_ttl) ... ok
+test_short_ttl_record_is_refetched_after_expiry (test_cache.YourCacheTest.test_short_ttl_record_is_refetched_after_expiry) ... ok
+test_stats_counts_names_without_duplicating_refreshed_record (test_cache.YourCacheTest.test_stats_counts_names_without_duplicating_refreshed_record) ... ok
+test_zero_ttl_record_is_never_reused (test_cache.YourCacheTest.test_zero_ttl_record_is_never_reused) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.112s
+
+OK

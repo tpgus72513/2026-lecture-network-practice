@@ -1,0 +1,27 @@
+{
+  "name": "www.korea.ac.kr",
+  "address": "163.152.6.10",
+  "path": [
+    "198.41.0.4",
+    "210.101.61.1",
+    "163.152.1.1"
+  ],
+  "trace": [
+    "질의: qname=www.korea.ac.kr. server=198.41.0.4 transport=UDP count=1/100",
+    "glue 사용: qname=www.korea.ac.kr. ns=c.dns.kr. addresses=210.101.61.1",
+    "glue 사용: qname=www.korea.ac.kr. ns=e.dns.kr. addresses=202.30.124.100",
+    "glue 사용: qname=www.korea.ac.kr. ns=d.dns.kr. addresses=203.83.159.1",
+    "glue 사용: qname=www.korea.ac.kr. ns=g.dns.kr. addresses=202.31.190.1",
+    "glue 사용: qname=www.korea.ac.kr. ns=f.dns.kr. addresses=210.101.62.1",
+    "glue 사용: qname=www.korea.ac.kr. ns=b.dns.kr. addresses=210.101.60.1",
+    "위임: qname=www.korea.ac.kr. zone=kr. glue_servers=210.101.61.1,202.30.124.100,203.83.159.1,202.31.190.1,210.101.62.1,210.101.60.1",
+    "질의: qname=www.korea.ac.kr. server=210.101.61.1 transport=UDP count=2/100",
+    "glue 사용: qname=www.korea.ac.kr. ns=kuccgx.korea.ac.kr. addresses=163.152.1.1",
+    "glue 사용: qname=www.korea.ac.kr. ns=kucc.korea.ac.kr. addresses=163.152.11.6",
+    "위임: qname=www.korea.ac.kr. zone=korea.ac.kr. glue_servers=163.152.1.1,163.152.11.6",
+    "질의: qname=www.korea.ac.kr. server=163.152.1.1 transport=UDP count=3/100",
+    "권한 있는 A: qname=www.korea.ac.kr. address=163.152.6.10 server=163.152.1.1"
+  ],
+  "no_glue_lookups": 0,
+  "query_count": 3
+}

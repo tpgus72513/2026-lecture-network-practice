@@ -1,0 +1,62 @@
+{
+  "assumptions": [
+    "캐시는 처음에 비어 있다.",
+    "요청이 들어온 시점에만 해당 이름을 upstream에서 조회한다.",
+    "응답은 권한 서버가 준 TTL 동안만 유효하며 만료 시각에는 재사용하지 않는다."
+  ],
+  "method": "이름별로 첫 요청에서 조회하고, 그 응답의 만료 시각 이상인 첫 요청에서 다시 조회하는 과정을 반복했다. 더 일찍 조회하면 만료도 더 빨라지고, 더 늦게 조회하면 현재 요청에 답할 수 없으므로 이 수보다 적은 조회로 모든 요청에 유효한 답을 줄 수 없다.",
+  "total_queries": 1000,
+  "total_minimum_upstream": 275,
+  "records": {
+    "www.microsoft.com": {
+      "ttl_seconds": 20,
+      "queries": 322,
+      "minimum": 118
+    },
+    "www.cnn.com": {
+      "ttl_seconds": 30,
+      "queries": 189,
+      "minimum": 76
+    },
+    "www.netflix.com": {
+      "ttl_seconds": 60,
+      "queries": 109,
+      "minimum": 37
+    },
+    "www.spotify.com": {
+      "ttl_seconds": 120,
+      "queries": 100,
+      "minimum": 23
+    },
+    "www.github.com": {
+      "ttl_seconds": 300,
+      "queries": 63,
+      "minimum": 11
+    },
+    "www.wikipedia.org": {
+      "ttl_seconds": 600,
+      "queries": 57,
+      "minimum": 6
+    },
+    "www.korea.ac.kr": {
+      "ttl_seconds": 3600,
+      "queries": 46,
+      "minimum": 1
+    },
+    "www.stanford.edu": {
+      "ttl_seconds": 3600,
+      "queries": 45,
+      "minimum": 1
+    },
+    "dns.google": {
+      "ttl_seconds": 86400,
+      "queries": 35,
+      "minimum": 1
+    },
+    "a.root-servers.net": {
+      "ttl_seconds": 86400,
+      "queries": 34,
+      "minimum": 1
+    }
+  }
+}

@@ -1,0 +1,7 @@
+frame.number	frame.time_epoch	frame.len	ip.src	ip.dst	udp.srcport	udp.dstport	udp.length	dns.length	dns.id	dns.flags.response	dns.flags.authoritative	dns.flags.recdesired	dns.count.answers	dns.count.auth_rr	dns.count.add_rr	dns.qry.name	dns.ns	dns.a	dns.aaaa	dns.cname	dns.response_to	dns.response_in
+1	1789446520.528662000	75	172.26.137.110	198.41.0.4	43123	53	41		0x460d	False		False	0	0	0	www.korea.ac.kr						2
+2	1789446520.654958000	383	198.41.0.4	172.26.137.110	53	43123	349		0x460d	True	False	False	0	6	10	www.korea.ac.kr	c.dns.kr,e.dns.kr,d.dns.kr,g.dns.kr,f.dns.kr,b.dns.kr	210.101.61.1,202.30.124.100,203.83.159.1,202.31.190.1,210.101.62.1,210.101.60.1	2001:dcc:5::100,2001:dcc:4::1,2001:dc5:a::1,2001:dcc:6::1		1	
+3	1789446520.673241000	75	172.26.137.110	210.101.61.1	49782	53	41		0x03b9	False		False	0	0	0	www.korea.ac.kr						4
+4	1789446520.744913000	147	210.101.61.1	172.26.137.110	53	49782	113		0x03b9	True	False	False	0	2	2	www.korea.ac.kr	kuccgx.korea.ac.kr,kucc.korea.ac.kr	163.152.11.6,163.152.1.1			3	
+5	1789446520.746517000	75	172.26.137.110	163.152.1.1	40557	53	41		0xae2b	False		False	0	0	0	www.korea.ac.kr						6
+6	1789446520.794612000	91	163.152.1.1	172.26.137.110	53	40557	57		0xae2b	True	True	False	1	0	0	www.korea.ac.kr		163.152.6.10			5	

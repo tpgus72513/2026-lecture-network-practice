@@ -1,0 +1,9 @@
+
+=== Task 2
+ FAIL  [2] capture has queries and responses  - 0 queries, 0 responses - filter was 'port 53'?
+  ok   [2] out/chains.json parses  - 3 sites
+  ok   [2] report mentions a table
+  ok   [2] report mentions third-party verdict
+  ok   [2] report mentions the steering number
+
+  4 passed, 1 failed, 0 skipped
