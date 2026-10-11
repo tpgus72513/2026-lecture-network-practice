@@ -16,7 +16,7 @@
 
 ## 3주차 DNS (`w03-dns/`)
 
-## 완료한 작업
+### 완료한 작업
 
 - [x] Task 1 반복 DNS resolver 구현 및 지정 도메인 5/5 실측 비교
 - [x] glue 누락·서버 실패·CNAME·순환·TCP 재시도 테스트
@@ -34,13 +34,13 @@
 
 검사기의 tshark Boolean 호환·사이트 수 표시 보완 내용은 `w03-dns/IMPLEMENTATION.ko.md`에 공개했다. 성능 하네스 `bench.py`와 `BaselineCache`는 그대로다.
 
-## 제출 전에 읽을 것
+### 제출 전에 읽을 것
 
 1. [관찰문](w03-dns/out/observation.md): 각 문장이 실제 결과를 어떻게 설명하는지 확인한다.
 2. [측정 보고서](w03-dns/out/report.md): 두 network, 실패 처리, 분류 근거와 한계를 확인한다.
 3. [구현 메모](w03-dns/IMPLEMENTATION.ko.md): 주요 설계 판단과 검사기 호환 수정을 확인한다.
 
-## 남은 외부 단계
+### 남은 외부 단계
 
 - [ ] 본인 GitHub 저장소에 코드와 `w03-dns/out/` 업로드
 - [ ] GitHub 웹에서 `out/observation.md`와 캡처 파일이 보이는지 확인
