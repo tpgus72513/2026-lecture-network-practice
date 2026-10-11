@@ -1,5 +1,21 @@
 # 제출 체크리스트
 
+## 4주차 TCP (`w04-tcp/`)
+
+- [x] Task 1: Selective Repeat 구현. seed 246과 999 모두 IDENTICAL이고, 실제 난수 데이터로도 순서 검증 (`w04-tcp/out/task1-*.txt`)
+- [x] Task 2A: 본인 노트북에서 직접 캡처한 `w04-tcp/out/tcp.pcapng`(헤더만, Cloudflare 주소만). SYN #1, SYN-ACK #2, ACK #3과 ISN·옵션·scaled window 분석
+- [x] Task 2B: 집 Wi-Fi와 폰 테더링 두 네트워크에서 각 5회 측정 (`throughput.json`, `throughput-summary.txt`)
+- [x] Task 3: goodput 98.7%, loss 2.0%, queue 1.91로 **strong** (`w04-tcp/out/bench.txt`)
+- [x] Task별 3줄의 `w04-tcp/out/observation.md`, 근거 안내 `w04-tcp/out/report.md`
+- [x] `python3 test_tasks.py` 8 passed, 0 failed, 1 skipped(R5는 사람이 채점) / `python3 ../check.py w04` 통과
+- [ ] GitHub 웹에서 `w04-tcp/out/observation.md`와 `tcp.pcapng`가 보이는지 확인한 뒤 LMS에 저장소 URL 제출
+
+`out/`과 `*.pcapng`는 원본 `.gitignore`에 걸리므로 `git add -f`로 올렸다. `bench.py`, `UnreliableChannel`, `verify()`, `test_tasks.py`는 수정하지 않았다.
+
+---
+
+## 3주차 DNS (`w03-dns/`)
+
 ## 완료한 작업
 
 - [x] Task 1 반복 DNS resolver 구현 및 지정 도메인 5/5 실측 비교

@@ -1,0 +1,26 @@
+== home Wi-Fi (U+, 5 GHz)   (2026-10-10 23:33:32, https://speed.cloudflare.com/__down?bytes=5000000)
+   throughput   median  28.23 Mbps   min  23.17   max  46.84   spread (max-min)/median 84%   stdev 10.29
+   handshake    median   17.3 ms     min    9.5   max   31.2
+   TLS+request  median  116.3 ms (ttfb)
+   setup total  median  151.4 ms  = DNS + handshake + ttfb, all paid in RTTs
+   setup share  median 15% of each run's time
+   transfer-only rate  median  31.61 Mbps   (bytes / time after the first byte)
+     run 1:  23.17 Mbps  handshake   9.5 ms  ttfb  357.2 ms  total 1.726 s
+     run 2:  40.46 Mbps  handshake  28.3 ms  ttfb   93.9 ms  total 0.989 s
+     run 3:  46.84 Mbps  handshake  31.2 ms  ttfb  126.6 ms  total 0.854 s
+     run 4:  28.23 Mbps  handshake  12.6 ms  ttfb  116.3 ms  total 1.417 s
+     run 5:  25.42 Mbps  handshake  17.3 ms  ttfb  105.9 ms  total 1.573 s
+
+== phone tethering (Galaxy S25 hotspot, LTE/5G)   (2026-10-11 22:52:57, https://speed.cloudflare.com/__down?bytes=5000000)
+   throughput   median  30.76 Mbps   min  27.84   max  33.26   spread (max-min)/median 18%   stdev 2.00
+   handshake    median   36.2 ms     min   30.2   max   85.0
+   TLS+request  median  153.2 ms (ttfb)
+   setup total  median  224.5 ms  = DNS + handshake + ttfb, all paid in RTTs
+   setup share  median 17% of each run's time
+   transfer-only rate  median  37.56 Mbps   (bytes / time after the first byte)
+     run 1:  27.84 Mbps  handshake  36.2 ms  ttfb  135.3 ms  total 1.437 s
+     run 2:  31.02 Mbps  handshake  85.0 ms  ttfb  130.8 ms  total 1.289 s
+     run 3:  30.76 Mbps  handshake  30.2 ms  ttfb  153.2 ms  total 1.300 s
+     run 4:  33.26 Mbps  handshake  35.1 ms  ttfb  154.5 ms  total 1.203 s
+     run 5:  29.53 Mbps  handshake  38.8 ms  ttfb  198.9 ms  total 1.354 s
+

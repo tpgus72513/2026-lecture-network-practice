@@ -1,0 +1,66 @@
+== Handshakes in tcp_tether.pcapng
+
+  stream 0: SYN #1  SYN-ACK #2  ACK #3   [2001:e60:xxxx (my phone-hotspot address, masked)]:49676 -> [2606:4700:7::da]:443
+    ISN client 3365988648   ISN server 3374648728   (SYN-ACK acks ISN+1, ACK acks server ISN+1: yes)
+    client SYN      MSS  1390   window scale shift  8 (x  256)   SACK permitted yes   raw window 65535
+    server SYN-ACK  MSS  1360   window scale shift 13 (x 8192)   SACK permitted yes   raw window 65535
+    handshake ACK: raw window 255 -> scaled 65280 bytes;  SYN->ACK RTT 35.3 ms
+
+  stream 1: SYN #6238  SYN-ACK #6239  ACK #6240   [2001:e60:xxxx (my phone-hotspot address, masked)]:49677 -> [2606:4700:7::da]:443
+    ISN client 3949438484   ISN server 1785809960   (SYN-ACK acks ISN+1, ACK acks server ISN+1: yes)
+    client SYN      MSS  1390   window scale shift  8 (x  256)   SACK permitted yes   raw window 65535
+    server SYN-ACK  MSS  1360   window scale shift 13 (x 8192)   SACK permitted yes   raw window 65535
+    handshake ACK: raw window 255 -> scaled 65280 bytes;  SYN->ACK RTT 66.7 ms
+
+  stream 2: SYN #11562  SYN-ACK #11563  ACK #11564   [2001:e60:xxxx (my phone-hotspot address, masked)]:60920 -> [2606:4700:7::da]:443
+    ISN client  992651663   ISN server 3138667494   (SYN-ACK acks ISN+1, ACK acks server ISN+1: yes)
+    client SYN      MSS  1390   window scale shift  8 (x  256)   SACK permitted yes   raw window 65535
+    server SYN-ACK  MSS  1360   window scale shift 13 (x 8192)   SACK permitted yes   raw window 65535
+    handshake ACK: raw window 255 -> scaled 65280 bytes;  SYN->ACK RTT 28.1 ms
+
+  stream 3: SYN #17028  SYN-ACK #17029  ACK #17030   [2001:e60:xxxx (my phone-hotspot address, masked)]:51717 -> [2606:4700:7::da]:443
+    ISN client 3331340150   ISN server 3496460211   (SYN-ACK acks ISN+1, ACK acks server ISN+1: yes)
+    client SYN      MSS  1390   window scale shift  8 (x  256)   SACK permitted yes   raw window 65535
+    server SYN-ACK  MSS  1360   window scale shift 13 (x 8192)   SACK permitted yes   raw window 65535
+    handshake ACK: raw window 255 -> scaled 65280 bytes;  SYN->ACK RTT 33.4 ms
+
+  stream 4: SYN #22412  SYN-ACK #22413  ACK #22414   [2001:e60:xxxx (my phone-hotspot address, masked)]:64844 -> [2606:4700:7::da]:443
+    ISN client 1870908182   ISN server 3512066689   (SYN-ACK acks ISN+1, ACK acks server ISN+1: yes)
+    client SYN      MSS  1390   window scale shift  8 (x  256)   SACK permitted yes   raw window 65535
+    server SYN-ACK  MSS  1360   window scale shift 13 (x 8192)   SACK permitted yes   raw window 65535
+    handshake ACK: raw window 255 -> scaled 65280 bytes;  SYN->ACK RTT 37.4 ms
+
+== Advertised window (client, after scaling) vs what the server kept in flight
+
+   in flight per RTT = server payload bytes arriving within one handshake RTT
+
+  stream 0: 5,012,921 B in 1.32 s (30.5 Mbps), RTT 35.3 ms
+    advertised window  median   524,032   max   524,032 B
+    in flight per RTT  median   142,896   max   254,352 B   -> peak used 49% of the median window
+    slow-start ramp: first RTT at the median flight = RTT #7 -> 247 ms after the first data byte
+    server segments retransmitted or out of order: 0
+
+  stream 1: 5,013,098 B in 1.14 s (35.1 Mbps), RTT 66.7 ms
+    advertised window  median 1,048,320   max 1,048,320 B
+    in flight per RTT  median   310,680   max   501,520 B   -> peak used 48% of the median window
+    slow-start ramp: first RTT at the median flight = RTT #3 -> 200 ms after the first data byte
+    server segments retransmitted or out of order: 0
+
+  stream 2: 5,013,033 B in 1.15 s (34.7 Mbps), RTT 28.1 ms
+    advertised window  median   524,032   max   524,032 B
+    in flight per RTT  median   129,928   max   213,424 B   -> peak used 41% of the median window
+    slow-start ramp: first RTT at the median flight = RTT #13 -> 366 ms after the first data byte
+    server segments retransmitted or out of order: 0
+
+  stream 3: 5,013,072 B in 1.10 s (36.3 Mbps), RTT 33.4 ms
+    advertised window  median   524,032   max   524,032 B
+    in flight per RTT  median   174,176   max   243,040 B   -> peak used 46% of the median window
+    slow-start ramp: first RTT at the median flight = RTT #8 -> 267 ms after the first data byte
+    server segments retransmitted or out of order: 0
+
+  stream 4: 5,013,008 B in 1.25 s (32.0 Mbps), RTT 37.4 ms
+    advertised window  median   524,032   max 1,048,320 B
+    in flight per RTT  median   175,360   max   246,512 B   -> peak used 47% of the median window
+    slow-start ramp: first RTT at the median flight = RTT #13 -> 487 ms after the first data byte
+    server segments retransmitted or out of order: 0
+

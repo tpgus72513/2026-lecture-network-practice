@@ -1,0 +1,25 @@
+
+=== Task 1
+  bytes    sent 2000   received 2000
+  channel  {'sent': 311, 'lost': 35, 'duplicated': 10, 'delivered': 286}
+  result   IDENTICAL
+  ok   [1] transfer seed=246 arrives identical
+  bytes    sent 2000   received 2000
+  channel  {'sent': 311, 'lost': 35, 'duplicated': 11, 'delivered': 287}
+  result   IDENTICAL
+  ok   [1] transfer seed=999 arrives identical
+
+=== Task 2
+  ok   [2] capture contains a handshake  - 10 SYN packets
+  ok   [2] B1 two or more labelled networks  - home Wi-Fi (U+, 5 GHz), phone tethering (Galaxy S25 hotspot, LTE/5G)
+  ok   [2] B2 five runs each
+
+=== Task 3
+  baseline   goodput  986.8/1000 slots   loss  37.4%   retx  2340   avg queue   8.8
+  yours      goodput  973.8/1000 slots   loss   2.0%   retx    80   avg queue   1.9
+  ok   [3] R3 loss at most 5%  - 2.0%
+  ok   [3] R4 average queue at most 5.0  - 1.9
+  ok   [3] goodput share of baseline  - 99%
+ skip  [3] R5 argument in observation.md  - graded by a human
+
+  8 passed, 0 failed, 1 skipped

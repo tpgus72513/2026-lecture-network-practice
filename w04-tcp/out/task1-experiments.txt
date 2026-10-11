@@ -1,0 +1,42 @@
+== Cost of reliability, submitted protocol (WINDOW=16, TIMEOUT=6 steps, PAYLOAD=8 B)
+
+  seed 246: IDENTICAL (random payload) in 111 steps
+    data  {'sent': 311, 'lost': 35, 'duplicated': 10, 'delivered': 286}   retransmissions 61
+    acks  {'sent': 286, 'lost': 30, 'duplicated': 7, 'delivered': 263}
+    data packets 311 / minimum 250 = 1.24x;  data+ACK 597 / 500 = 1.19x
+    receiver: 140 DATA arrived ahead of a gap, 36 DATA arrived it already had
+
+  seed 999: IDENTICAL (random payload) in 128 steps
+    data  {'sent': 311, 'lost': 35, 'duplicated': 11, 'delivered': 287}   retransmissions 61
+    acks  {'sent': 287, 'lost': 29, 'duplicated': 8, 'delivered': 266}
+    data packets 311 / minimum 250 = 1.24x;  data+ACK 598 / 500 = 1.20x
+    receiver: 155 DATA arrived ahead of a gap, 37 DATA arrived it already had
+
+== One defence removed x one impairment at a time, random payload (seeds 246 / 999)
+
+  variant                       full channel                loss only                   reorder only                duplicate only              
+  selective repeat (submitted)  IDENTICAL                   IDENTICAL                   IDENTICAL                   IDENTICAL                   
+  no retransmission             SHORT 8B / SHORT 56B        SHORT 8B / SHORT 56B        IDENTICAL                   IDENTICAL                   
+  ACK number not checked        SHORT 8B / SHORT 56B        SHORT 8B / SHORT 56B        IDENTICAL                   IDENTICAL                   
+  no reorder buffer             WRONG ORDER                 WRONG ORDER                 WRONG ORDER                 IDENTICAL                   
+  no duplicate check            EXTRA 2288B / EXTRA 2296B   EXTRA 2280B / EXTRA 2168B   IDENTICAL                   EXTRA 2048B / EXTRA 2080B   
+
+== Same, with verify()'s payload (2000 identical bytes)
+
+  variant                       full channel                loss only                   reorder only                duplicate only              
+  selective repeat (submitted)  IDENTICAL                   IDENTICAL                   IDENTICAL                   IDENTICAL                   
+  no retransmission             SHORT 8B / SHORT 56B        SHORT 8B / SHORT 56B        IDENTICAL                   IDENTICAL                   
+  ACK number not checked        SHORT 8B / SHORT 56B        SHORT 8B / SHORT 56B        IDENTICAL                   IDENTICAL                   
+  no reorder buffer             IDENTICAL                   IDENTICAL                   IDENTICAL                   IDENTICAL                   
+  no duplicate check            EXTRA 2288B / EXTRA 2296B   EXTRA 2280B / EXTRA 2168B   IDENTICAL                   EXTRA 2048B / EXTRA 2080B   
+
+== When each broken variant went wrong on the full channel, random payload
+
+  no retransmission        seed 246: never wrong, but stuck at 8 B from step 1
+  no retransmission        seed 999: never wrong, but stuck at 56 B from step 1
+  ACK number not checked   seed 246: never wrong, but stuck at 8 B from step 1
+  ACK number not checked   seed 999: never wrong, but stuck at 56 B from step 1
+  no reorder buffer        seed 246: output stopped matching the input at step 1
+  no reorder buffer        seed 999: output stopped matching the input at step 1
+  no duplicate check       seed 246: output stopped matching the input at step 1
+  no duplicate check       seed 999: output stopped matching the input at step 1

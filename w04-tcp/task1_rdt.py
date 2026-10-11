@@ -52,41 +52,90 @@ class UnreliableChannel:
         return self.wire.pop(0)
 
 
+WINDOW = 16           # packets the sender may have unacknowledged at once
+TIMEOUT = 6           # steps to wait for an ACK before sending a packet again
+
+
 class Sender:
-    """Your sender.
+    """Selective-repeat sliding window (textbook §3.4.4).
 
-    Requirements are in task1.md. The short version:
-
-      - break `data` into PAYLOAD-sized pieces and number them
-      - retransmit what is not acknowledged
-      - do not assume an ACK means what you think it means until you have
-        checked the number on it
-
-    You choose the protocol: stop-and-wait is the easiest to get right and the
-    slowest; a sliding window is the point of §3.4.3. Say which you chose and
-    why in observation.md.
+    Every packet is ("DATA", seq, payload) and gets its own timer. An ACK is
+    ("ACK", seq) and acknowledges exactly that one packet, so a lost ACK costs
+    one retransmission and nothing else. An ACK is only believed after its
+    number is checked: one that is not for an outstanding packet (a duplicate,
+    or an old one that wandered in late) is ignored.
     """
 
     def __init__(self, data_channel, ack_channel, data):
-        raise NotImplementedError("write your sender")
+        self.out, self.inp = data_channel, ack_channel
+        self.chunks = [data[i:i + PAYLOAD] for i in range(0, len(data), PAYLOAD)]  # R1
+        self.acked = [False] * len(self.chunks)
+        self.sent_at = {}                     # seq -> step last (re)sent, unacked only
+        self.base = 0                         # oldest seq not yet acknowledged
+        self.next_seq = 0                     # next seq never sent
+        self.clock = 0
+        self.transmissions = self.retransmissions = 0
+
+    def _send(self, seq):
+        self.out.send(("DATA", seq, self.chunks[seq]))
+        self.sent_at[seq] = self.clock
+        self.transmissions += 1
 
     def step(self):
-        """Do one unit of work. Return False when you believe you are done."""
-        raise NotImplementedError
+        self.clock += 1
+        while (pkt := self.inp.receive()) is not None:
+            kind, seq = pkt[0], pkt[1]
+            if kind != "ACK" or seq not in self.sent_at:
+                continue                      # R3: duplicate or stale ACK
+            del self.sent_at[seq]
+            self.acked[seq] = True
+        while self.base < len(self.chunks) and self.acked[self.base]:
+            self.base += 1                    # slide the window
+
+        for seq, t in list(self.sent_at.items()):  # R4: per-packet timers
+            if self.clock - t >= TIMEOUT:
+                self._send(seq)
+                self.retransmissions += 1
+        while self.next_seq < min(self.base + WINDOW, len(self.chunks)):
+            self._send(self.next_seq)
+            self.next_seq += 1
+        return self.base < len(self.chunks)
 
 
 class Receiver:
-    """Your receiver. Hands back the reassembled bytes via `.data()`."""
+    """Buffers out-of-order packets and releases bytes strictly in order.
+
+    Every DATA packet is ACKed, including duplicates and packets it already
+    delivered: the sender may have lost the first ACK and is waiting for one.
+    A packet already seen is never stored twice, so a duplicate cannot add bytes.
+    """
 
     def __init__(self, data_channel, ack_channel):
-        raise NotImplementedError("write your receiver")
+        self.inp, self.out = data_channel, ack_channel
+        self.buffer = {}                      # seq -> payload, not yet in order
+        self.expected = 0                     # next seq to append to the output
+        self.chunks = []
+        self.duplicates = self.out_of_order = 0
 
     def step(self):
-        raise NotImplementedError
+        while (pkt := self.inp.receive()) is not None:
+            kind, seq, payload = pkt
+            if kind != "DATA":
+                continue
+            self.out.send(("ACK", seq))
+            if seq < self.expected or seq in self.buffer:
+                self.duplicates += 1          # R3: already have it
+                continue
+            if seq != self.expected:
+                self.out_of_order += 1
+            self.buffer[seq] = payload
+            while self.expected in self.buffer:  # R2: release in order only
+                self.chunks.append(self.buffer.pop(self.expected))
+                self.expected += 1
 
     def data(self):
         """The bytes reassembled so far."""
-        raise NotImplementedError
+        return b"".join(self.chunks)
 
 
 # ------------------------------------------------------------------- harness

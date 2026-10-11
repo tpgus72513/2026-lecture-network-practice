@@ -1,0 +1,53 @@
+== Link: 1 pkt/slot, RTT 20, queue 10, 4000 slots, timeout 60
+
+  FixedWindow 64 (baseline)            goodput  986.8 (100.0%)   loss 37.40%   retx  2340   avg queue  8.76
+  fixed window 18                      goodput  889.5 (90.1%)   loss  0.22%   retx     8   avg queue  0.04
+  fixed window 20                      goodput  986.8 (100.0%)   loss  0.28%   retx    11   avg queue  0.05
+  fixed window 22                      goodput  986.8 (100.0%)   loss  0.38%   retx    15   avg queue  1.99
+  fixed window 25                      goodput  986.8 (100.0%)   loss  0.53%   retx    21   avg queue  4.90
+  fixed window 30                      goodput  986.8 (100.0%)   loss  2.38%   retx    96   avg queue  8.76
+  fixed window 31                      goodput  986.8 (100.0%)   loss  3.96%   retx   162   avg queue  8.76
+  fixed window 40                      goodput  986.8 (100.0%)   loss 16.17%   retx   756   avg queue  8.76
+  textbook Reno (halve on every loss)  goodput  811.0 (82.2%)   loss  1.93%   retx    64   avg queue  2.93
+  YourControl (submitted)              goodput  973.8 (98.7%)   loss  2.00%   retx    80   avg queue  1.91
+
+== Where the submitted window goes
+   cuts (slot, window before -> after):
+     slot  169:  82.0 ->  41.0
+     slot  337:  41.0 ->  20.5
+     slot 1638:  31.9 ->  21.3
+     slot 2922:  32.0 ->  21.3
+   slots 1000-3999: window median 21.3, min 20.5, max 31.9, time at <= 22: 80%
+   every 250 slots: 1 41 20 20 20 20 27 21 21 21 21 26 21 21 21 21
+
+== Gentler backoff: cut factor after a probe loss, no hold (pure AIMD, one cut per event)
+  beta 0.50, hold 0                    goodput  948.0 (96.1%)   loss  2.50%   retx    98   avg queue  4.68
+  beta 0.60, hold 0                    goodput  966.5 (97.9%)   loss  2.55%   retx   102   avg queue  5.47
+  beta 0.67, hold 0                    goodput  973.5 (98.7%)   loss  2.73%   retx   110   avg queue  6.11
+  beta 0.75, hold 0                    goodput  974.0 (98.7%)   loss  3.04%   retx   123   avg queue  6.99
+  beta 0.85, hold 0                    goodput  974.0 (98.7%)   loss  4.22%   retx   172   avg queue  8.07
+  beta 0.90, hold 0                    goodput  974.0 (98.7%)   loss  7.32%   retx   309   avg queue  8.44
+
+== Same cut factors with the hold
+  beta 0.50, hold 1000                 goodput  849.5 (86.1%)   loss  2.29%   retx    80   avg queue  1.38
+  beta 0.60, hold 1000                 goodput  947.5 (96.0%)   loss  2.06%   retx    80   avg queue  1.39
+  beta 0.67, hold 1000                 goodput  973.8 (98.7%)   loss  2.00%   retx    80   avg queue  1.91
+  beta 0.75, hold 1000                 goodput  973.8 (98.7%)   loss  2.00%   retx    80   avg queue  3.03
+  beta 0.85, hold 1000                 goodput  973.8 (98.7%)   loss  2.05%   retx    82   avg queue  5.14
+  beta 0.90, hold 1000                 goodput  973.8 (98.7%)   loss  2.05%   retx    82   avg queue  5.67
+
+== Hold length (beta 2/3)
+  hold 0                               goodput  973.5 (98.7%)   loss  2.73%   retx   110   avg queue  6.11
+  hold 100                             goodput  974.0 (98.7%)   loss  2.41%   retx    95   avg queue  5.05
+  hold 250                             goodput  973.8 (98.7%)   loss  2.19%   retx    88   avg queue  3.72
+  hold 500                             goodput  973.8 (98.7%)   loss  2.10%   retx    84   avg queue  2.74
+  hold 1000                            goodput  973.8 (98.7%)   loss  2.00%   retx    80   avg queue  1.91
+  hold 2000                            goodput  973.8 (98.7%)   loss  1.95%   retx    78   avg queue  1.26
+
+== Other links (bench constants changed in memory only)
+  RTT 20 queue 10 (cliff ~30, pipe/cliff 0.67)   mine 98.7% of baseline, loss 2.00%, queue  1.91
+  RTT 10 queue 10 (cliff ~20, pipe/cliff 0.50)   mine 99.3% of baseline, loss 1.19%, queue  3.90
+  RTT 20 queue 20 (cliff ~40, pipe/cliff 0.50)   mine 98.1% of baseline, loss 2.14%, queue  8.72
+  RTT 40 queue 10 (cliff ~50, pipe/cliff 0.80)   mine 77.0% of baseline, loss 2.24%, queue  1.15
+  RTT 20 queue  5 (cliff ~25, pipe/cliff 0.80)   mine 77.6% of baseline, loss 1.24%, queue  0.33
+  RTT 40 queue 40 (cliff ~80, pipe/cliff 0.50)   mine 95.3% of baseline, loss 4.11%, queue 21.31

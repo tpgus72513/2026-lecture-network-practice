@@ -39,26 +39,54 @@ class FixedWindow:
 
 
 class YourControl:
-    """Your congestion control.
+    """Slow start, then "back off to the pipe and hold" (textbook §3.7).
 
-    Things worth knowing before you start:
+    Loss is the only signal, and it only says one thing: the window just went
+    over pipe + queue (about 20 + 10 = 30 here). Anywhere between 20 and 30
+    nothing is lost, so a loss-only sender is blind there - it just fills the
+    queue. So the goal is not to sit under the loss point, it is to sit at the
+    pipe, about 2/3 of it, and to visit the loss point as rarely as possible.
 
-    * The link drains one packet per slot and the round trip is 20 slots, so
-      the pipe holds about 20 packets. Above that you are only filling a queue.
-    * The queue is 10 packets deep and drops from the tail. Filling it does not
-      make you faster - it makes you slower, and everybody behind you too.
-    * Cutting hard on every loss costs you throughput. Not cutting costs you
-      correctness. §3.7 is the argument about where between those to sit.
-    * You are allowed to grow differently before and after your first loss.
-      That distinction has a name in the textbook.
+      slow start  +1 per ACK until the first loss (the textbook's slow start)
+      loss        if we were probing gently, we just crossed the cliff, so
+                  cut to 2/3 of it, about the pipe. Any other loss means the
+                  last cut was not enough, so halve (multiplicative decrease)
+      hold        keep that window for HOLD ACKs: the link is full and the
+                  queue is near empty, there is nothing to gain by growing
+      probe       +1 per round trip (additive increase) until a loss says
+                  where the cliff is now
+
+    One cut per loss event. A loss is only reported after a 3-RTT timeout, so
+    packets sent before a cut keep "failing" for 3 RTTs after it; at window W
+    one RTT is about W ACKs, so losses are ignored for the next 3*W ACKs.
     """
 
+    BETA_PROBE = 2 / 3     # cliff -> pipe:  20 / (20 + 10)
+    BETA = 1 / 2           # the cut did not reach below the cliff
+    HOLD = 1000            # ACKs to sit at the pipe before probing again
+
     def __init__(self):
-        self.window = 1
-        raise NotImplementedError("write your congestion control")
+        self.window = 1.0
+        self.state = "slow start"
+        self.held = 0          # ACKs since we started holding
+        self.ignore = 0        # ACKs left during which losses are not new news
 
     def on_ack(self):
-        raise NotImplementedError
+        if self.ignore:
+            self.ignore -= 1
+        if self.state == "slow start":
+            self.window += 1
+        elif self.state == "hold":
+            self.held += 1
+            if self.held >= self.HOLD:
+                self.state = "probe"
+        else:
+            self.window += 1 / self.window
 
     def on_loss(self):
-        raise NotImplementedError
+        if self.ignore:
+            return                      # same congestion event as the last cut
+        beta = self.BETA_PROBE if self.state == "probe" else self.BETA
+        self.window = max(2.0, self.window * beta)
+        self.state, self.held = "hold", 0
+        self.ignore = int(3 * self.window)
